@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy Birthday, Prapti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Marcellus&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <video id="bgVideo" autoplay muted loop playsinline>
+    <source src="bg-video.mp4" type="video/mp4">
+  </video>
+  <div id="bgOverlay"></div>
+
+  <div class="flower-rain" id="flowerRain"></div>
+
+  <div id="gate">
+    <div class="petal-field"></div>
+    <div class="gate-inner">
+      <span class="rose-mark">🌹</span>
+      <h1>For Prapti</h1>
+      <p>A little something, just for you. Turn the sound on and open it when you're ready.</p>
+      <button id="gateBtn">Open my gift</button>
+    </div>
+  </div>
+
+  <audio id="bgm" loop preload="none">
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
+  <div id="page">
+    <header class="hero">
+      <div class="eyebrow-script">wishing the happiest birthday to</div>
+      <h1>Prapti</h1>
+      <div class="date-line">27 September</div>
+      <div class="together">
+        <div class="stat"><span class="num" id="daysNum">—</span><span class="lab">Days Together</span></div>
+        <div class="divider"></div>
+        <div class="stat"><span class="num">24 Apr</span><span class="lab">2023, Where It Began</span></div>
+      </div>
+    </header>
+
+    <section id="gallery-section">
+      <h2 class="section-title reveal">A Few of My Favourites</h2>
+      <p class="section-sub reveal">every one of these, I'd choose again</p>
+      <div class="gallery">
+        <figure class="reveal"><div class="frame"><img src="photos/p1.jpg" alt=""></div><figcaption>amar shobcheye priyo muhurto</figcaption></figure>
+        <figure class="reveal"><div class="frame"><img src="photos/p8.jpg" alt=""></div><figcaption>tumi ar ami — always</figcaption></figure>
+        <figure class="reveal"><div class="frame"><img src="photos/p6.jpg" alt=""></div><figcaption>tumi sundor, shob shomoy</figcaption></figure>
+        <figure class="reveal"><div class="frame"><img src="photos/p2.jpg" alt=""></div><figcaption>sei ekta hashi</figcaption></figure>
+        <figure class="reveal"><div class="frame"><img src="photos/p3.jpg" alt=""></div><figcaption>tomar chokhe hariye jai</figcaption></figure>
+        <figure class="reveal"><div class="frame"><img src="photos/p4.jpg" alt=""></div><figcaption>amar mishti pakhi</figcaption></figure>
+        <figure class="reveal"><div class="frame"><img src="photos/p5.jpg" alt=""></div><figcaption>tumi amar shanti</figcaption></figure>
+        <figure class="reveal"><div class="frame"><img src="photos/p7.jpg" alt=""></div><figcaption>bhalobashi tomake, always</figcaption></figure>
+      </div>
+    </section>
+
+    <div id="lightbox">
+      <button id="lightboxClose" aria-label="Close">✕</button>
+      <img id="lightboxImg" src="" alt="">
+    </div>
+
+    <section>
+      <h2 class="section-title reveal">My Letter To You</h2>
+      <p class="section-sub reveal">from Rohan, with everything I have</p>
+      <div class="letter reveal">
+        <p>Happiest Birthday my love ❤️🎂 Many many happy returns of the day, Prapti 💌. You're not just beautiful and gorgeous on the outside, but you also have the kindest and strongest heart. Always stay confident, keep smiling, and never doubt yourself.</p>
+        <p>I pray this year brings you endless happiness, good health, and success in everything you do ✨. May all your dreams slowly turn into reality, because you truly deserve the best of the best.</p>
+        <p>Never forget how precious you are to me. You're my safe place, my biggest blessing, and the most special person in my life. I feel so lucky every day to call you mine. No matter what happens, I'll always stand by you, support you, and love you unconditionally 🫶🏻.</p>
+        <p>So enjoy this special day to the fullest, eat lots of good food, laugh out loud, and make the most beautiful memories 💕. You deserve nothing less than all the happiness in the world.</p>
+        <p>Happiest birthday again, my love 🌸💗.</p>
+        <div class="signoff">— Rohan</div>
+      </div>
+    </section>
+
+    <footer>
+      <span class="rose-mark">🌷</span>
+      <p>Here's to every year after this one, together.</p>
+    </footer>
+  </div>
+
+  <button id="musicBtn" class="paused" aria-label="Play music">
+    <div class="bars"><span></span><span></span><span></span></div>
+  </button>
+
+<script src="script.js"></script>
+</body>
+</html>

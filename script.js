@@ -55,6 +55,57 @@
     }
   }
 
+  // twinkling sparkles on the gate screen
+  var sparkleField = document.getElementById('sparkleField');
+  if(sparkleField){
+    var sparkleGlyphs = ['✨','⭐','💫'];
+    for(var s = 0; s < 20; s++){
+      var sp = document.createElement('span');
+      sp.className = 'sparkle';
+      sp.textContent = sparkleGlyphs[Math.floor(Math.random()*sparkleGlyphs.length)];
+      sp.style.left = (Math.random()*100) + 'vw';
+      sp.style.fontSize = (8 + Math.random()*12) + 'px';
+      var sDur = 5 + Math.random()*6;
+      var sTwinkle = 1.4 + Math.random()*1.8;
+      sp.style.animationDuration = sDur + 's, ' + sTwinkle + 's';
+      sp.style.animationDelay = (-Math.random()*sDur) + 's, ' + (-Math.random()*sTwinkle) + 's';
+      sparkleField.appendChild(sp);
+    }
+  }
+
+  // gently rising hearts & sparkles behind the hero name
+  var heroField = document.getElementById('heroSparkles');
+  if(heroField){
+    var heroGlyphs = ['💗','✨','🌸'];
+    for(var h = 0; h < 12; h++){
+      var hs = document.createElement('span');
+      hs.textContent = heroGlyphs[Math.floor(Math.random()*heroGlyphs.length)];
+      hs.style.left = (Math.random()*100) + '%';
+      hs.style.fontSize = (10 + Math.random()*14) + 'px';
+      var hDur = 8 + Math.random()*8;
+      var hTwinkle = 2 + Math.random()*2;
+      hs.style.animationDuration = hDur + 's, ' + hTwinkle + 's';
+      hs.style.animationDelay = (-Math.random()*hDur) + 's, ' + (-Math.random()*hTwinkle) + 's';
+      heroField.appendChild(hs);
+    }
+  }
+
+  // little heart burst when the gate is tapped open
+  function heartBurst(){
+    var glyphs = ['❤️','💖','💗','💕'];
+    for(var b = 0; b < 12; b++){
+      var hb = document.createElement('span');
+      hb.className = 'heart-burst';
+      hb.textContent = glyphs[Math.floor(Math.random()*glyphs.length)];
+      hb.style.fontSize = (16 + Math.random()*18) + 'px';
+      hb.style.setProperty('--dx', (Math.random()*220 - 110) + 'px');
+      hb.style.setProperty('--rot', (Math.random()*50 - 25) + 'deg');
+      hb.style.animationDelay = (Math.random()*0.25) + 's';
+      gate.appendChild(hb);
+      (function(el){ setTimeout(function(){ el.remove(); }, 1600); })(hb);
+    }
+  }
+
   function playAudio(){
     audio.play().then(function(){
       musicBtn.classList.remove('paused');
@@ -62,6 +113,7 @@
   }
 
   document.getElementById('gateBtn').addEventListener('click', function(){
+    heartBurst();
     gate.classList.add('hide');
     page.classList.add('show');
     playAudio();
@@ -141,7 +193,11 @@
     var stepTime = Math.max(8, Math.floor(1400 / target));
     var timer = setInterval(function(){
       count += Math.ceil(target / 120);
-      if(count >= target){ count = target; clearInterval(timer); }
+      if(count >= target){
+        count = target;
+        clearInterval(timer);
+        daysEl.classList.add('popped');
+      }
       daysEl.textContent = count.toLocaleString();
     }, stepTime);
   }catch(e){}

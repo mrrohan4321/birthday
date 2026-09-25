@@ -4,7 +4,7 @@
   --blush:#f4dfe4;
   --cream:#fbf4ee;
   --gold:#b8925a;
-  --ink:#3a1f26;
+  --ink:#f1d0d9;
   box-sizing:border-box;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -20,7 +20,7 @@ body{
 }
 h1,h2,.display{font-family:'Marcellus', Georgia, serif;}
 
-/* ---------- background video (hero section only) ---------- */
+/* ---------- hero background video ---------- */
 #bgVideo{
   position:absolute; inset:0; width:100%; height:100%;
   object-fit:cover; z-index:-2;
@@ -28,7 +28,7 @@ h1,h2,.display{font-family:'Marcellus', Georgia, serif;}
 }
 #bgOverlay{
   position:absolute; inset:0; z-index:-1;
-  background:linear-gradient(180deg, rgba(251,244,238,.42) 0%, rgba(244,223,228,.4) 45%, rgba(251,244,238,.46) 100%);
+  background:linear-gradient(180deg, rgba(251,244,238,.42) 0%, #f4dfe400 45%, rgba(251, 244, 238, 0) 100%);
 }
 
 /* ---------- gate / entry ---------- */
@@ -133,20 +133,13 @@ h1,h2,.display{font-family:'Marcellus', Georgia, serif;}
 
 header.hero{
   position:relative;
+  isolation:isolate;
   min-height:92vh;
   display:flex; flex-direction:column; align-items:center; justify-content:center;
   text-align:center;
   padding:60px 24px 40px;
   background:radial-gradient(60% 45% at 50% 0%, rgba(184,146,90,.14), transparent 60%);
   overflow:hidden;
-}
-header.hero::before{
-  content:"";
-  position:absolute; inset:-15%; z-index:-1; pointer-events:none;
-  background:
-    radial-gradient(28% 28% at 22% 25%, rgba(184,146,90,.16), transparent 65%),
-    radial-gradient(24% 24% at 78% 65%, rgba(109,31,60,.10), transparent 65%);
-  animation:glowDrift 11s ease-in-out infinite alternate;
 }
 .eyebrow-script{
   font-family:'Cormorant Garamond',serif;
@@ -184,13 +177,9 @@ header.hero::before{
   display:inline-block;
   opacity:0;
   transform:translateY(18px);
-  animation:letterIn .7s cubic-bezier(.2,.8,.2,1) forwards, letterShine 3.4s ease-in-out 2.6s infinite;
+  animation:letterIn .7s cubic-bezier(.2,.8,.2,1) forwards;
 }
 @keyframes letterIn{to{opacity:1; transform:translateY(0);}}
-@keyframes letterShine{
-  0%,100%{color:var(--wine-deep); text-shadow:0 2px 18px rgba(251,244,238,.85), 0 1px 4px rgba(251,244,238,.9);}
-  50%{color:var(--gold); text-shadow:0 2px 22px rgba(184,146,90,.55), 0 1px 4px rgba(251,244,238,.9);}
-}
 .hero .date-line{
   margin-top:18px;
   font-size:clamp(14px,3vw,17px);
@@ -199,9 +188,8 @@ header.hero::before{
   text-transform:uppercase;
   text-shadow:0 1px 10px rgba(251,244,238,.85);
   opacity:0;
-  animation:fadeUp .9s ease .95s forwards, datePulse 3.6s ease-in-out 2.2s infinite;
+  animation:fadeUp .9s ease .95s forwards;
 }
-@keyframes datePulse{0%,100%{text-shadow:0 1px 10px rgba(251,244,238,.85);}50%{text-shadow:0 1px 18px rgba(184,146,90,.55);}}
 .together{
   margin-top:38px;
   display:flex; gap:28px; flex-wrap:wrap; justify-content:center;
@@ -218,18 +206,15 @@ header.hero::before{
 }
 .together .num.popped{animation:numPop .55s ease;}
 @keyframes numPop{0%{transform:scale(1);}45%{transform:scale(1.18);}100%{transform:scale(1);}}
-.together .num{animation:numBreathe 3.2s ease-in-out 3s infinite;}
-@keyframes numBreathe{0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
 .together .lab{font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); text-shadow:0 1px 8px rgba(251,244,238,.85);}
 
 .divider{
   width:1px;height:46px;background:linear-gradient(var(--gold),transparent);
   transform:scaleY(0); transform-origin:top;
   opacity:0;
-  animation:growLine .9s ease 1.05s forwards, dividerGlow 2.6s ease-in-out 2.4s infinite;
+  animation:growLine .9s ease 1.05s forwards;
 }
 @keyframes growLine{from{opacity:0;}to{opacity:1; transform:scaleY(1);}}
-@keyframes dividerGlow{0%,100%{opacity:.55;}50%{opacity:1;}}
 
 section{padding:70px 20px; max-width:760px; margin:0 auto;}
 .section-title{
